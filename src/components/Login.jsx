@@ -9,7 +9,6 @@ import { client } from "../client";
 
 const Login = () => {
     const navigate = useNavigate()
-
     useEffect(() => {
         const initClient = () => {
             gapi.auth2.init({
@@ -21,6 +20,7 @@ const Login = () => {
     }, []);
 
     const responseGoogle = (response) => {
+        console.log(response)
         localStorage.setItem('user', JSON.stringify(response.profileObj));
 
         const {name, googleId, imageUrl} = response.profileObj
