@@ -25,7 +25,7 @@ const Pin = ({ pin }) => {
                 .setIfMissing({ save: [] })
                 .insert('after','save[-1]', [{
                     _key: uuidv4(),
-                    userId: user.googleId,
+                    userId: user?.googleId,
                     postedBy: {
                         _type: 'postedBy',
                         _ref: user?.googleId
@@ -97,7 +97,7 @@ const Pin = ({ pin }) => {
                                     {destination.length > 15 ? `${destination.slice(0, 15)}...` : destination}
                                 </a>
                             )}
-                            {postedBy?._id === user.googleId && (
+                            {postedBy?._id === user?.googleId && (
                                 <button
                                     type='button'
                                     onClick={(e) => {
